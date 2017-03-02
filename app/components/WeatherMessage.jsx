@@ -1,6 +1,6 @@
 import React from 'react';
 
-var WeatherMessage = React.createClass({
+/*var WeatherMessage = React.createClass({
 
   render: function() {
     var { temp, location } = this.props;
@@ -10,6 +10,13 @@ var WeatherMessage = React.createClass({
       </div>
     );
   }
-});
+});*/
 
+var WeatherMessage = ({ temp, location}) => {
+  return (
+    <div>
+      <h2>It's {temp} in {location}</h2>
+    </div>
+  )
+};
 module.exports = WeatherMessage;
