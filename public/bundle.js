@@ -25858,7 +25858,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(165);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ReactDOMServer = __webpack_require__(261);
 
 	var ErrorModal = _react2.default.createClass({
 	  displayName: 'ErrorModal',
@@ -25873,15 +25879,11 @@
 	    message: _react2.default.PropTypes.string.isRequired
 	  },
 	  componentDidMount: function componentDidMount() {
-	    var modal = new Foundation.Reveal($('#error-modal'));
-	    modal.open();
-	  },
-	  render: function render() {
 	    var _props = this.props,
 	        title = _props.title,
 	        message = _props.message;
 
-	    return _react2.default.createElement(
+	    var modalMarkup = _react2.default.createElement(
 	      'div',
 	      { id: 'error-modal', className: 'reveal tiny text-center', 'data-reveal': '' },
 	      _react2.default.createElement(
@@ -25904,6 +25906,15 @@
 	        )
 	      )
 	    );
+
+	    var $modal = $(ReactDOMServer.renderToString(modalMarkup));
+	    $(_reactDom2.default.findDOMNode(this)).html($modal);
+	    var modal = new Foundation.Reveal($('#error-modal'));
+	    modal.open();
+	  },
+	  render: function render() {
+
+	    return _react2.default.createElement('div', null);
 	  }
 	});
 
@@ -27506,6 +27517,15 @@
 	exports.push([module.id, "* {\n  font-family: Raleway !important; }\n\n.page-title {\n  color: #555;\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem; }\n\ninput[type=search] {\n  box-shadow: none; }\n", ""]);
 
 	// exports
+
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(155);
 
 
 /***/ }
