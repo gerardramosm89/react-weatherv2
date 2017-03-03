@@ -12,7 +12,10 @@ import React from 'react';
 /**** Converting to Stateless ****/
 var About = (props) => {
   return (
-    <h3>About Component</h3>
+    <div>
+      <h3 className="text-center">About Component</h3>
+      <p className="text-center">This is a weather application built for React</p>
+    </div>
   )
 };
 
