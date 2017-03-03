@@ -25523,11 +25523,14 @@
 	    null,
 	    React.createElement(_Nav2.default, null),
 	    React.createElement(
-	      'h2',
-	      null,
-	      'Main Component'
-	    ),
-	    props.children
+	      'div',
+	      { className: 'row' },
+	      React.createElement(
+	        'div',
+	        { className: 'columns medium-6 large-4 small-centered' },
+	        props.children
+	      )
+	    )
 	  );
 	};
 	module.exports = Main;
@@ -27366,7 +27369,36 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(166);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Examples = function Examples() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'text-center' },
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Examples'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'here are a few example location to try out.'
+	    ),
+	    _react2.default.createElement(
+	      'ol',
+	      null,
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: '/?location=San%20Jose' },
+	        'San Jose, CA'
+	      )
+	    )
+	  );
+	};
+	module.exports = Examples;
 
 	// var Examples = React.createClass({
 	//   render: function() {
@@ -27375,24 +27407,6 @@
 	//     );
 	//   }
 	// });
-
-	var Examples = function Examples() {
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    _react2.default.createElement(
-	      'h3',
-	      null,
-	      'Examples'
-	    ),
-	    _react2.default.createElement(
-	      'p',
-	      null,
-	      'Welcome to the examples page!'
-	    )
-	  );
-	};
-	module.exports = Examples;
 
 /***/ },
 /* 262 */
