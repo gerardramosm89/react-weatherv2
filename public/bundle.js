@@ -25557,7 +25557,12 @@
 
 	  onSearch: function onSearch(e) {
 	    e.preventDefault();
-	    console.log("Not yet wired");
+	    var location = encodeURIComponent(this.refs.search.value);
+	    if (location.length > 0) {
+	      this.refs.search.value = '';
+	      window.location.hash = '#/?location=' + location;
+	    }
+	    console.log(location);
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -25615,7 +25620,7 @@
 	            _react2.default.createElement(
 	              'li',
 	              null,
-	              _react2.default.createElement('input', { type: 'search', placeholder: 'search weather' })
+	              _react2.default.createElement('input', { type: 'search', placeholder: 'search weather', ref: 'search' })
 	            ),
 	            _react2.default.createElement(
 	              'li',
@@ -25682,7 +25687,9 @@
 	    var that = this;
 	    this.setState({
 	      isLoading: true,
-	      errorMessage: undefined
+	      errorMessage: undefined,
+	      location: undefined,
+	      temp: undefined
 	    });
 	    openWeatherMap.getTemp(location).then(function (temp) {
 	      that.setState({
@@ -25696,22 +25703,22 @@
 	        errorMessage: e.message
 	      });
 	    });
-
-	    //data => {
-
-	    //console.log(data);
-	    //     this.setState({
-	    //     location: location,
-	    //     temp: data,
-	    //     isLoading: false
-	    //   });
-	    // });
-	    //console.log("Search was hit");
-	    // this.setState({
-	    //   location: location,
-	    //   temp: 23
-	    // });
 	  },
+	  componentDidMount: function componentDidMount() {
+	    var location = this.props.location.query.location;
+	    if (location && location.length > 0) {
+	      this.handleSearch(location);
+	      window.location.hash = '#/';
+	    }
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
+	    var location = newProps.location.query.location;
+	    if (location && location.length > 0) {
+	      this.handleSearch(location);
+	      window.location.hash = '#/';
+	    }
+	  },
+
 	  render: function render() {
 	    var _state = this.state,
 	        isLoading = _state.isLoading,
