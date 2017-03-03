@@ -28,7 +28,7 @@ module.exports = {
       About: 'app/components/About.jsx',
       Examples: 'app/components/Examples.jsx',
       ErrorModal: 'app/components/Errormodal.jsx',
-      appStyles: 'app/styles/app.css'  
+      appStyles: 'app/styles/app.scss'  
     },
     extensions: ['', '.js', '.jsx']
   },
