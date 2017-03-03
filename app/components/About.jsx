@@ -13,7 +13,7 @@ import React from 'react';
 var About = (props) => {
   return (
     <div>
-      <h3 className="text-center">About Component</h3>
+      <h3 className="text-center page-title">About Component</h3>
       <p className="text-center">This is a weather application built for React</p>
     </div>
   )

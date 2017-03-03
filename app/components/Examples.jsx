@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 var Examples = () => {
     return (
-      <div className="text-center">
+      <div className="text-center page-title">
         <h1>Examples</h1>
         <p>here are a few example location to try out.</p>
         <ol>
